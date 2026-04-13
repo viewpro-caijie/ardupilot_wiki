@@ -41,13 +41,13 @@ UART Mapping
 
 The default serial port mapping is:
 
-* SERIAL0 -> USB OTG1
-* SERIAL1 -> USART2 (TELEM1)
-* SERIAL2 -> UART5 (TELEM2)
+* SERIAL0 -> USB (MAVLink2)
+* SERIAL1 -> USART2 (MAVLink2, Telem1)
+* SERIAL2 -> UART5 (MAVLink2, Telem2)
 * SERIAL3 -> USART1 (GPS1)
 * SERIAL4 -> USART3 (GPS2)
-* SERIAL5 -> UART7 (TELEM3 / user defined)
-* SERIAL6 -> USB OTG2 (virtual serial port on the same USB connector)
+* SERIAL5 -> UART7 (User defined)
+* SERIAL6 -> USB OTG2 (SLCAN)
 
 The TELEM1 port includes RTS/CTS. The other exposed UARTs do not.
 
@@ -123,7 +123,10 @@ The board includes built-in battery monitor defaults for the primary power input
 
 A secondary voltage-only monitor can also be enabled for the ESC power input:
 
-- :ref:`BATT2_MONITOR<BATT2_MONITOR>` = 3
+- :ref:`BATT2_MONITOR<BATT2_MONITOR>` = 3    to enable
+
+Preset defaults:
+
 - :ref:`BATT2_VOLT_PIN<BATT2_VOLT_PIN__AP_BattMonitor_Analog>` = 10
 - :ref:`BATT2_VOLT_MULT<BATT2_VOLT_MULT__AP_BattMonitor_Analog>` = 10.09
 
@@ -131,14 +134,14 @@ Compass
 =======
 
 The hardware definition includes on-board compass support.
-As with most compact autopilots, users operating near high-current wiring or power electronics may still get better magnetic performance from an external compass mounted away from the flight controller.
+As with most compact autopilots, users operating near high-current wiring or power electronics may still get better magnetic performance from an external compass mounted away from the flight controller, while disabling the internal compass.
 
 Loading Firmware
 ================
 
 Firmware for the board can be found on the `ArduPilot Firmware Server <https://firmware.ardupilot.org>`__ in the folders named "VUAV-TinyV7" for each vehicle type.
 
-The board includes an ArduPilot-compatible bootloader, so firmware can be loaded with any compatible ground station using the ".apj" files.
+The board includes an ArduPilot-compatible bootloader, so firmware can be loaded with any compatible ground station using the "\.apj" files.
 
 Where to Buy
 ============
